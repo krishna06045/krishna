@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Destinations</title>
+    <link rel="icon" type="image/x-icon" href="/assets/brand-icon.svg">
+
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+ 
+     <link rel="stylesheet" href="main.css">
+     <link rel="stylesheet" href="styles/destination.css">
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <img src="./assets/brand-logo.svg" alt="Every Sunday Logo">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="/">Destination</a></li>
+                <li><a href="feedback.html">Feedback</a></li>
+                <li><a href="prices.html">Pricing</a></li>
+            </ul>
+            <div id="login-container">
+                <a href="login.html" id="loginBtn"><i class="fa-solid fa-user" id="login-btn"></i></a>
+                <div style="display: none;">
+                    <a href='checkout.html'><i class="fa-solid fa-cart-shopping" style="margin-right:1rem"></i></a>
+                    <a href="/" id="logout-btn" class='btn-small' style='border-radius:50px;color:var(--white)'>Log Out</a>
+                </div>       
+            </div>
+        </nav>
+    </header>
+    <main>
+        <dialog id="destination-dialog">
+            <button id="close-destination" class="btn-small view-details "><i class="fa-solid fa-arrow-left" ></i> Back</button>
+            <div id="destination-img-container">
+            </div>
+            <id id="destination-img-row">
+            </id>
+            <div id="destination-description">
+            </div>
+            <div id="destination-activity">
+            </div>
+            <div id="destination-attractions"></div>
+        </dialog>
+        <section class="container destinations">
+            <div class="toolbar">
+                <div class="searchbox" id="mainsearch">
+                    <input  type="text" placeholder="Enter your destination">
+                    <button class="btn-small">Search</button>
+                </div>
+                <div class="col-btns">
+                    <button class="col-btn btn-small col-active" id="2-col">2</button>
+                    <button class="col-btn btn-small" id="3-col">3</button>
+                </div>
+            </div>
+            <div class="sidebar">
+                <div class="filter-rating">
+                    <h4>filter by rating</h4>
+                    <div class="five" title="> 4/5 Stars" data="5">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-regular fa-star"></i>
+                    </div>                    
+                    <div class="four" title="> 3/5 Stars" data="4">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-regular fa-star"></i>
+                        <i class="fa-regular fa-star"></i>
+                    </div>
+                    <div class="three" title="> 2/5 Stars" data="3">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-regular fa-star"></i>
+                        <i class="fa-regular fa-star"></i>
+                        <i class="fa-regular fa-star"></i>
+                    </div>
+                    <div class="two" title="> 1/5 Stars" data="2">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-regular fa-star"></i>
+                        <i class="fa-regular fa-star"></i>
+                        <i class="fa-regular fa-star"></i>
+                        <i class="fa-regular fa-star"></i>
+                    </div>
+                </div>
+                <hr>
+                <div class="filter-price">
+                    <h4>filter by price</h4>
+                    <div class="filter-price-option" data-value="above 7500">
+                        More Than $7500
+                    </div>
+                    <div class="filter-price-option" data-value="6000-7500">
+                        $6000 - $7500
+                    </div>
+                    <div class="filter-price-option" data-value="4000-6000">
+                        $4000 - $6000
+                    </div>
+                    <div class="filter-price-option" data-value="below 4000">
+                        less than 4000
+                    </div>
+                </div>
+                <hr>
+                <div class="filter-country">
+                    <h4>filter by country</h4>
+                    <select id="country">
+                        <option value="">Select Country</option>
+                        <option value="India">India</option>
+                        <option value="United States">USA</option>
+                        <option value="Turkey">Turkey</option>
+                        <option value="France">France</option>
+                        <option value="Canada">Canada</option>
+                    </select>
+                </div>
+                <hr>
+                <div>
+                    <h4>Sort By Price</h4>
+                    <button id="lowToHigh" class="btn-small">Low To High</button>
+                    <button id="highToLow" class="btn-small">High To Low</button>
+                </div>
+            </div>
+            <div class="main-content">
+                <img src="./assets/Loader.svg" alt="loader" id="loader">
+                <div id="blank">
+                </div>
+                <div id="pagination-container"></div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <section class="articles"></section>
+        <div class="container">
+            <h1>Get started and early <span>Update</span> about our package</h1>
+            <div class="searchbox">
+                <input  type="text" placeholder="Enter your email">
+                <button class="btn" id="cta">Get Started</button>
+            </input>
+            </div>
+            <hr>
+            <div class="footer">
+                <img src="./assets/brand-logo.svg" alt="Every Sunday Logo">
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/">Destination</a></li>
+                    <li><a href="/">Feedback</a></li>
+                    <li><a href="/">Pricing</a></li>
+                </ul>
+                <p><i class="fa-regular fa-copyright"></i> 2023 Every Sunday</p>
+            </div>
+            <div class="socials">
+                <div class="social">
+                    <a href="https://www.instagram.com/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+                </div>
+                <div class="social">
+                    <a href="https://twitter.com/" target="_blank"><i class="fa-brands fa-twitter"></i></a>
+                </div>
+                <div class="social">
+                    <a href="https://www.facebook.com/" target="_blank"><i class="fa-brands fa-facebook"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+<script src="main.js"></script>
+<script src="./script/destination.js"></script>
+</html>

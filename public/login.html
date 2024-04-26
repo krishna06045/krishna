@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/x-icon" href="/assets/brand-icon.svg">
+    <title>Every Sunday | Login </title>
+
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="styles/login.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <script src="js/angular.min.js"></script>
+</head>
+
+<body ng-app="myapp">
+    <header>
+        <nav class="container">
+            <img src="./assets/brand-logo.svg" alt="Every Sunday Logo">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="destination.html">Destination</a></li>
+                <li><a href="feedback.html">Feedback</a></li>
+                <li><a href="prices.html">Pricing</a></li>
+            </ul>
+            <!-- <div id="toggle">
+                <label class="switch">
+                    <input type="checkbox">
+                    <span class="slider round"></span>
+                </label>
+            </div> -->
+            <div id="login-container">
+                <a href="login.html" id="loginBtn"><i class="fa-solid fa-user" id="login-btn"></i></a>
+                <div style="display: none;">
+                    <a href='checkout.html'><i class="fa-solid fa-cart-shopping" style="margin-right:1rem"></i></a>
+                    <a href="/" id="logout-btn" class='btn-small' style='border-radius:50px;color:var(--white)'>Log
+                        Out</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <section class="container">
+            <div id="box">
+
+                <div class="logSignTogle">
+                    <button id="login-btn-form" onclick="showLogin()" class="btn">Login <i
+                            class="fa-solid fa-right-to-bracket"
+                            style="color:inherit;margin-left:0.5rem;font-size:var(--paragraph-small)"></i></button>
+                    <button id="signup-btn" onclick="showSignup()" class="inactive">Signup <i
+                            class="fa-solid fa-user-plus"
+                            style="color:inherit;margin-left:0.5rem;font-size:var(--paragraph-small)"></i></button>
+                </div>
+
+
+                <div class="main">
+                    <div id="login" class="login-page">
+                        <form id="loginform">
+
+                            <div class="form-group">
+                                <label for="email1">Email</label>
+                                <input type="email" id="email1" name="email1" placeholder="Enter email">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="password">Password</label>
+                                <input type="password" id="passwordl" name="password" placeholder="Enter password">
+                            </div>
+
+                            <input type="submit" value="Login" id="log" class="btn">
+
+                        </form>
+
+                    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                    <div id="signup" class="signup-page" ng-controller="SignupController">
+                        <form id="signupform" method='post' name="Myform">
+
+                            <div class="form-group">
+                                <label for="name">Name:</label>
+                                <input type="text" id="name" name="name" placeholder="Enter your name"
+                                    ng-model="signup.name" ng-required="true" ng-minlength="5"
+                                    ng-pattern="/^[a-zA-Z]+$/">
+                                <div ng-show="Myform.name.$invalid && Myform.name.$touched"><small
+                                        style="color: red; display: flex; font-weight: 600;">Enter Valid name</small>
+                                </div>
+                            </div>
+
+
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="email" id="email" name="email" ng-model="signup.email"
+                                    placeholder="Enter email" ng-required="true">
+                                <div ng-show="Myform.email.$invalid && Myform.email.$touched">
+                                    <small style="color: red; display: flex; font-weight: 600;">Enter valid
+                                        email</small>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="dob">Date of Birth</label>
+                                <input type="date" id="dob" name="dob" autocomplete="off">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="password">Password</label>
+                                <input type="password" id="passwords" name="password" ng-model="signup.password"
+                                    placeholder="Enter password" ng-required="true" ng-minlength="5">
+                                <div ng-show="Myform.password.$invalid && Myform.password.$touched">
+                                    <small style="color: red; display: flex; font-weight: 600;">Enter Valid
+                                        Password</small>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="confirmPassword">Confirm Password</label>
+                                <input type="password" id="confirmPassword" name="confirmPassword"
+                                    ng-model="signup.confirmPassword" ng-required="true"
+                                    placeholder="Confirm your password">
+                                <div
+                                    ng-show="signup.confirmPassword !== signup.password && Myform.confirmPassword.$touched">
+                                    <small style="color: red; font-weight: 600;">Passwords do not match.</small>
+                                </div>
+                            </div>
+
+
+                            <input type="submit" value="Signup" class="btn" id="sign">
+
+                        </form>
+                    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+                </div>
+            </div>
+
+
+
+
+
+            <i class="fa-solid fa-users" id="watermark"></i>
+
+            </div>
+
+        </section>
+    </main>
+    <footer>
+        <section class="articles"></section>
+        <div class="container">
+            <h1>Get started and early <span>Update</span> about our package</h1>
+
+            <div class="searchbox">
+                <input type="text" placeholder="Enter your email">
+                <button class="btn" id="cta">Get Started</button>
+                </input>
+            </div>
+            <hr>
+            <div class="footer">
+                <img src="./assets/brand-logo.svg" alt="Every Sunday Logo">
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/">Destination</a></li>
+                    <li><a href="/">Feedback</a></li>
+                    <li><a href="/">Pricing</a></li>
+                </ul>
+                <p><i class="fa-regular fa-copyright"></i> 2023 Every Sunday</p>
+            </div>
+            <div class="socials">
+                <div class="social">
+                    <a href="https://www.instagram.com/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+                </div>
+                <div class="social">
+                    <a href="https://twitter.com/" target="_blank"><i class="fa-brands fa-twitter"></i></a>
+                </div>
+                <div class="social">
+                    <a href="https://www.facebook.com/" target="_blank"><i class="fa-brands fa-facebook"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/app.js"></script>
+    <script src="main.js"></script>
+    <script>
+        let loginTab = document.getElementById("login");
+        let signupTab = document.getElementById("signup");
+        let loginTabBtn = document.getElementById("login-btn-form");
+        let signupTabBtn = document.getElementById("signup-btn");
+        function showLogin() {
+            loginTab.style.display = "block";
+            signupTab.style.display = "none";
+            signupTabBtn.classList.remove('btn');
+            signupTabBtn.classList.add('inactive');
+            loginTabBtn.classList.remove('inactive');
+            loginTabBtn.classList.add('btn');
+        }
+
+        function showSignup() {
+            loginTab.style.display = "none";
+            signupTab.style.display = "block";
+            loginTabBtn.classList.add('inactive');
+            loginTabBtn.classList.remove('btn');
+            signupTabBtn.classList.remove('inactive');
+            signupTabBtn.classList.add('btn');
+        }
+
+        let login_data = [];
+
+        async function fetchData() {
+            try {
+                let res = await fetch("https://mock-every-sunday-server.onrender.com/users");
+                let data = await res.json();
+                console.log(data);
+                login_data = data;
+            } catch (err) {
+                console.log(err);
+            }
+        }
+        fetchData();
+
+        let form1 = document.getElementById("signupform");
+        let name = document.getElementById("name");
+        let email = document.getElementById("email");
+        let dob = document.getElementById("dob")
+        let password = document.getElementById("passwords");
+        let confirmPassword = document.getElementById("confirmPassword");
+
+        form1.addEventListener("submit", function (event) {
+            event.preventDefault();
+
+            if (confirmPassword.value !== password.value) {
+                alert("Enter the same characters for password and confirm password fields!");
+            } else {
+                signup();
+            }
+        }, { once: true });
+
+        async function signup() {
+            try {
+                let res = await fetch("https://mock-every-sunday-server.onrender.com/users", {
+                    method: "POST",
+                    body: JSON.stringify({
+                        name: name.value,
+                        email: email.value,
+                        password: password.value,
+
+                        dob: dob.value,
+                        imgAvatar: Math.floor((Math.random() * 10) + 1)
+
+
+                    }),
+                    headers: {
+                        "Content-Type": "application/json"
+                    }
+                });
+
+                let data = await res.json();
+                displayMessage('Account Created', 'success');
+                fetchData();
+            } catch (err) {
+                console.log(err);
+            }
+        }
+
+        let email1 = document.getElementById("email1");
+        let passwordLogin = document.getElementById("passwordl");
+        let form2 = document.getElementById("loginform");
+        // console.log(login_data)
+
+        form2.addEventListener("submit", function (event) {
+            event.preventDefault();
+
+            let flag = false;
+
+            for (let i = 0; i < login_data.length; i++) {
+                if (email1.value === login_data[i].email && passwordLogin.value === login_data[i].password) {
+                    flag = true;
+                    if (email1.value === "admin@admin.com" && passwordLogin.value === "admin") {
+                        displayMessage('Admin Login Successfull', 'success');
+                        localStorage.setItem('userId', login_data[i].id);
+                        console.log('Admin logged In');
+                        setTimeout(() => {
+                            window.location.href = "admin.html";
+                        }, 2000)
+
+                    } else {
+                        displayMessage('User Login Successfull', 'success');
+                        // Redirect to the regular user page (change "admin.html" to the appropriate user page).
+                        localStorage.setItem('userId', login_data[i].id);
+                        console.log('User logged In');
+                        setTimeout(() => {
+                            window.location.href = "index.html";
+                        }, 2000);
+                    }
+                    break;
+                }
+            }
+
+            if (!flag) {
+                displayMessage('Wrong Credentials! Try Again.', 'warning');
+            }
+            email1.value = "";
+            passwordLogin.value = "";
+        });
+
+    </script>
+</body>
+
+</html>

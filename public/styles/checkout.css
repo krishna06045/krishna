@@ -1,0 +1,76 @@
+
+.cart-section{
+    padding-block: 8rem;
+}
+h1 span{
+    color:var(--highlight);
+}
+table {
+    border-collapse: collapse;
+    width: 100%;
+    margin: auto;
+    margin-top: 50px;
+    text-align: center;
+}
+
+table td,
+table th {
+border: 1px solid var(--white);
+padding: 0.75rem 1rem;
+color:var(--white);
+text-align: center;
+}
+
+table tr:nth-child(even) {
+background-color: var(--background);
+}
+
+table tr:hover {
+    background-color: var(--background-light);
+}
+
+table th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: var(--background-dark);
+    color: white;
+    text-align: center;
+}
+#append select{
+    padding:0.25rem 0.5rem;
+    background-color: transparent !important;
+    border: 2px solid var(--white-light);
+    color: var(--white-light);
+    cursor: pointer;
+    border-radius: 8px;
+}
+#append select option{
+    background-color: var(--background-light);
+    color:var(--white);
+    cursor: pointer;
+}
+
+
+.checkout-container{
+    padding-block: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border:1px solid var(--white);
+    /* margin-top: 2rem; */
+    border-top: none;
+    padding:2rem;
+}
+#total{
+    font-size: var(--h3);
+    color:var(--highlight);
+    margin-left: 1rem;
+}
+.secondary-btn{
+    background-color: transparent !important;
+    background-image: none;
+    border:2px solid var(--primary);
+    color:var(--primary);
+    margin-right: 1rem;
+}
